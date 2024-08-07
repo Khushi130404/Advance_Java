@@ -1,12 +1,11 @@
 package DatabaseProject.src;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Types;
+import java.sql.Statement;
 import java.util.Scanner;
 
-public class CallableWithOut2 {
+public class MyBatch {
 
 	public static void main(String[] args) {
         try {
@@ -14,21 +13,17 @@ public class CallableWithOut2 {
             System.out.println("DRIVER ACTIVATED...");
             Scanner scan = new Scanner(System.in);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db24?characterEncoding=latin1", "root", "");
-            CallableStatement cst = con.prepareCall("call with_out2(?,?);");
-            System.out.print("Enter Name : ");
-            String na = scan.next();
-            na = na.toLowerCase();
-            cst.setString(1, na);
-            cst.registerOutParameter(2, Types.INTEGER);
-            cst.execute();
-            int id = cst.getInt(2);
-            System.out.println("Id : "+id);
-            cst.close();
+            Statement st = con.createStatement();
+            st.addBatch("delete from student where sid = 10");
+            st.addBatch("insert into student values (10,'Meet',26)");
+            st.addBatch("update student set sna = 'Kavya' where sid = 3");
+            st.executeBatch();
+            System.out.println("Done");
+            st.close();
             con.close();
         } catch (Exception e) {
             System.out.print("\n ERROR  : " + e.getMessage());
             e.printStackTrace();
         }
 	}
-
 }

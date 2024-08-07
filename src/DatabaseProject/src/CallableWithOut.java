@@ -21,6 +21,7 @@ public class CallableWithOut {
             cst.execute();
             int ag = cst.getInt(2);
             System.out.println("Age : "+ag);
+            cst.close();
             con.close();
         } catch (Exception e) {
             System.out.print("\n ERROR  : " + e.getMessage());
