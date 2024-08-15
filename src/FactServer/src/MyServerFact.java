@@ -31,7 +31,7 @@ public class MyServerFact {
 			client.close();
 			server.close();
 			
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
