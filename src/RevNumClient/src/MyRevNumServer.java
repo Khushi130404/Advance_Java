@@ -26,7 +26,7 @@ public class MyRevNumServer {
 			{
 				int r = x%10;
 				x /= 10;
-				y += 10*r;
+				y = 10*y+r;
 			}
 			
 			dos.writeInt(y);

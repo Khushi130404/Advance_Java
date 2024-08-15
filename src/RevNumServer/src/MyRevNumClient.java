@@ -20,7 +20,7 @@ public class MyRevNumClient {
 			dos.writeInt(a);
 			
 			int b = dis.readInt();
-			System.out.println(b);
+			System.out.println("Reverse Number : "+b);
 			
 			dos.close();
 			dis.close();
