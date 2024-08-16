@@ -11,7 +11,7 @@ public class MyServerChat {
 
 	public static void main(String[] args) {
 		try {
-			ServerSocket server = new ServerSocket(1304);
+			ServerSocket server = new ServerSocket(1300);
 			System.out.println("Server waiting to Connect");
 			Socket client = server.accept();
 			System.out.println("Welcome Client");
@@ -21,13 +21,13 @@ public class MyServerChat {
 			Scanner scan = new Scanner(System.in);
 			String s = "";
 			
-			while(s.equalsIgnoreCase("Q"))
+			while(!s.equalsIgnoreCase("Quit"))
 			{
 				System.out.print("Enter a String...");
 				s = scan.next();
 				dos.writeUTF(s);
 				s = dis.readUTF();
-				System.out.print("Client : "+s);
+				System.out.println("Client : "+s);
 			}
 			
 			dos.close();

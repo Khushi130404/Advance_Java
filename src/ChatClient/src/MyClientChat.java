@@ -9,17 +9,17 @@ public class MyClientChat {
 
 	public static void main(String[] args) {
 		try {
-			Socket socket = new Socket("localhost",1304);
+			Socket socket = new Socket("localhost",1300);
 			DataInputStream dis = new DataInputStream(socket.getInputStream());
 			DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 			Scanner scan = new Scanner(System.in);
 			
 			String s = "";
 			
-			while(s.equalsIgnoreCase("Q"))
+			while(!s.equalsIgnoreCase("Quit"))
 			{
 				s = dis.readUTF();
-				System.out.print("Client : "+s);
+				System.out.println("Server : "+s);
 				System.out.print("Enter a String...");
 				s = scan.next();
 				dos.writeUTF(s);
