@@ -26,10 +26,12 @@ public class MyServerChat {
 				System.out.print("Enter a String...");
 				s = scan.next();
 				dos.writeUTF(s);
+				if(s.equalsIgnoreCase("Quit")) break;
 				s = dis.readUTF();
+				if(s.equalsIgnoreCase("Quit")) break;
 				System.out.println("Client : "+s);
 			}
-			
+			System.out.print("Program End");
 			dos.close();
 			dis.close();
 			client.close();
