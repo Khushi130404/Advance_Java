@@ -28,7 +28,6 @@ public class MyServerChat {
 				dos.writeUTF(s);
 				if(s.equalsIgnoreCase("Quit")) break;
 				s = dis.readUTF();
-				if(s.equalsIgnoreCase("Quit")) break;
 				System.out.println("Client : "+s);
 			}
 			System.out.print("Program End");
