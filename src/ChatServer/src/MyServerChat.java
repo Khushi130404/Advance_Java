@@ -27,7 +27,6 @@ public class MyServerChat {
 				System.out.print("Client : "+s);
 			}while(s.equalsIgnoreCase("Q"));
 			
-			
 			dos.close();
 			dis.close();
 			client.close();
