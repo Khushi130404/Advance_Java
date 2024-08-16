@@ -16,12 +16,14 @@ public class MyClientChat {
 			
 			String s = "";
 			
-			do 
+			while(s.equalsIgnoreCase("Q"))
 			{
-				System.out.print("Enter a String...");
 				s = dis.readUTF();
 				System.out.print("Client : "+s);
-			}while(s.equalsIgnoreCase("Q"));
+				System.out.print("Enter a String...");
+				s = scan.next();
+				dos.writeUTF(s);
+			}
 			
 			dos.close();
 			dis.close();

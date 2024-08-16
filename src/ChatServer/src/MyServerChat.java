@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class MyServerChat {
 
@@ -17,15 +18,17 @@ public class MyServerChat {
 			
 			DataInputStream dis = new DataInputStream(client.getInputStream());
 			DataOutputStream dos = new DataOutputStream(client.getOutputStream());
-			
+			Scanner scan = new Scanner(System.in);
 			String s = "";
 			
-			do 
+			while(s.equalsIgnoreCase("Q"))
 			{
 				System.out.print("Enter a String...");
+				s = scan.next();
+				dos.writeUTF(s);
 				s = dis.readUTF();
 				System.out.print("Client : "+s);
-			}while(s.equalsIgnoreCase("Q"));
+			}
 			
 			dos.close();
 			dis.close();
