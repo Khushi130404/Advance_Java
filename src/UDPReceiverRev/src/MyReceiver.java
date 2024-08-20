@@ -13,12 +13,13 @@ public class MyReceiver {
 			DatagramSocket receiver = new DatagramSocket(4321);
 			Scanner scan = new Scanner(System.in);
 			System.out.print("Message : ");
-			String msg = scan.nextLine();
+			String msg = scan.next();
 			byte b[] = new byte[1024];
 			b = msg.getBytes();
 			InetAddress ip = InetAddress.getByName("localhost");
 			DatagramPacket pack = new DatagramPacket(b, b.length, ip, 1234);
 			receiver.send(pack);
+			
 			receiver.receive(pack);
 			b = pack.getData();
 			msg = new String(b);

@@ -17,8 +17,9 @@ public class MySender {
 			sender.receive(pack);
 			b = pack.getData();
 			msg = new String(b);
+			msg=msg.trim();
 			StringBuffer sb = new StringBuffer(msg);
-			sb.reverse();
+			sb = sb.reverse();
 			msg = sb.toString();
 			b = msg.getBytes();
 			InetAddress ip = InetAddress.getByName("localhost");
