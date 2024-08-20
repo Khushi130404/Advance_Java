@@ -19,6 +19,7 @@ public class MyReceiver {
 			DatagramPacket packet = new DatagramPacket(b,b.length,ip,1304);
 			receiver.send(packet);
 			receiver.receive(packet);
+			b=packet.getData();
 			msg = new String(b);
 			System.out.println("Upper : "+msg);
 			receiver.close();
