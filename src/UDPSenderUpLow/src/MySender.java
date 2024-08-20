@@ -14,6 +14,7 @@ public class MySender {
 			byte[] b = new byte[1024];
 			DatagramPacket packet = new DatagramPacket(b,b.length);
 			sender.receive(packet);
+			b = packet.getData();
 			msg = new String(b);
 			msg = msg.toUpperCase();
 			b = msg.getBytes();
